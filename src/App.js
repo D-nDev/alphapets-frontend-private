@@ -1,11 +1,15 @@
+/* eslint-disable no-console */
 import React from 'react';
-import './scss/app.scss';
+import AppProvider from './providers';
+import Routes from './routes/routes';
+import GlobalStyle from './styles/GlobalStyles';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <AppProvider>
+      <GlobalStyle />
+      <Routes />
+    </AppProvider>
   );
 }
 

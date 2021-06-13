@@ -2,8 +2,8 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-function Index() {
-  return <div />;
+function Register() {
+  return <></>;
 }
 
-export default Index;
+export default Register;
