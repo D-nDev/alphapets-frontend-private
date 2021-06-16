@@ -1,14 +1,12 @@
 import React, { createContext, useState } from 'react';
 import api from '../services/api';
-import backendapi from '../services/backendapi';
-import { useCookies } from '../hooks/useCookies';
 
-export const UploadContext = createContext({});
+export const UploadPetContext = createContext({});
 
-export const UploadProvider = props => {
+export const UploadPetProvider = props => {
   const [selectedFile, setSelectedFile] = useState([]);
   const [loading, setLoading] = useState([]);
-  const { cookies } = useCookies();
+  const [photourl, setPhotoUrl] = useState('');
   const acceptedFiles = [
     'image/png',
     'image/jpg',
@@ -34,13 +32,7 @@ export const UploadProvider = props => {
         });
         setLoading('Upload realizado com sucesso');
         console.log(data.url);
-        const body = {
-          email: cookies.get('email'),
-          link: data.url,
-        };
-        // eslint-disable-next-line no-unused-vars
-        const { newdata } = await backendapi.post('/setphoto', body);
-        localStorage.setItem('@alphapets:photo', data.url);
+        setPhotoUrl(data.url);
       } catch (error) {
         console.log(error);
       }
@@ -50,17 +42,19 @@ export const UploadProvider = props => {
   };
 
   return (
-    <UploadContext.Provider
+    <UploadPetContext.Provider
       value={{
-        UploadProvider,
+        UploadPetProvider,
         fileSelectedHandler,
         fileUploadHandler,
         selectedFile,
         setLoading,
         loading,
+        setPhotoUrl,
+        photourl,
       }}
     >
       {props.children}
-    </UploadContext.Provider>
+    </UploadPetContext.Provider>
   );
 };

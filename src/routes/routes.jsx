@@ -1,9 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from '../pages/Login';
 
 import Register from '../pages/Register';
-import Upload from '../pages/Upload';
+// import Upload from '../pages/Upload';
+import Painel from '../pages/Painel';
+import Logout from '../pages/Logout';
+import SMS from '../pages/SMS';
+import Email from '../pages/Email';
+import Recover from '../pages/RecoverPass';
+import PetList from '../pages/PetList';
+import Schedules from '../pages/Schedules';
 
 function Routes() {
   return (
@@ -11,7 +18,16 @@ function Routes() {
       <Switch>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/upload" component={Upload} />
+        <Route path="/painel" component={Painel} />
+        <Route path="/logout" component={Logout} />
+        <Route path="/sms" component={SMS} />
+        <Route path="/email" component={Email} />
+        <Route path="/recover" component={Recover} />
+        <Route path="/petlist" component={PetList} />
+        <Route path="/schedules" component={Schedules} />
+        <Route exact path="/">
+          <Redirect to="/login" />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

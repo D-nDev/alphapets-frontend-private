@@ -29,6 +29,8 @@
     "no-console": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
+    "no-return-assign": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [

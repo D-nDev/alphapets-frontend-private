@@ -13,8 +13,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #f5f5f5;
+    background: #F5F5F9;
     color: #333333;
+    padding-right: 0 !important;
   }
 
   body, input, button {
