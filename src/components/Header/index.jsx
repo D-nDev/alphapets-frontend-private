@@ -79,7 +79,7 @@ function Header(props) {
 
   const handleCloseSuccess = () => {
     setOpenToastSuccess({ open2: false, vertical: 'top', horizontal: 'left' });
-    navigate.push('/logout');
+    window.location.href = '/';
   };
 
   const handleClickErr = () => {
@@ -303,7 +303,9 @@ function Header(props) {
         <MenuItem>
           <span
             onClick={() => {
-              navigate.push('/logout');
+              cookies.remove('email', { path: '/' });
+              cookies.remove('name', { path: '/' });
+              window.location.href = '/';
             }}
             aria-hidden="true"
           >
