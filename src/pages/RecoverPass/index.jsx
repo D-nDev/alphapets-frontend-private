@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import SmsIcon from '@material-ui/icons/Sms';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -82,7 +82,7 @@ export default function Recover() {
         <Grid item xs={12} sm={8} md={6}>
           <div className={classes.rightSide}>
             <Avatar className={classes.avatar}>
-              <SmsIcon />
+              <VpnKeyIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               AlphaPets - Alterar Senha

@@ -17,18 +17,21 @@ import Input from '../../components/FormInputs/input';
 import backendapi from '../../services/backendapi';
 
 export default function Email() {
+  axios.defaults.headers.post['Content-Type'] =
+    'application/x-www-form-urlencoded';
+  axios.defaults.headers.get['Content-Type'] =
+    'application/x-www-form-urlencoded';
   const classes = useStyles();
   const emailRef = useRef(null);
   const navigate = useHistory();
   const [email, setEmail] = useState('');
   const [disabled, setDisabled] = useState(false);
 
-  // eslint-disable-next-line no-unused-vars
   async function handleRequest() {
     setDisabled(true);
     try {
       const { data: userip } = await axios.get(
-        'https://geolocation-db.com/json/7bad3e80-c704-11eb-a4bc-19a5c6a04c5d',
+        'https://api.ipify.org/?format=json',
       );
       const result = Bowser.getParser(window.navigator.userAgent);
       const body = {
@@ -36,7 +39,7 @@ export default function Email() {
         user_browser: result.parsedResult.browser.name,
         user_os: result.parsedResult.os.name,
         user_osversion: result.parsedResult.os.versionName,
-        user_ip: userip.IPv4,
+        user_ip: userip.ip,
       };
       const { data } = await backendapi.post('/forgotpass', body);
       if (data !== 'Ok') {
