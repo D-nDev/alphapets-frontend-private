@@ -12,4 +12,4 @@ Tutorial: https://www.youtube.com/watch?v=V8w7K1HdrFo
 
 `REACT_APP_BACKEND_API_URL=IP_DO_BACKEND`
 
-`REACT_APP_BACKEND_UPLOAD1='IP_DO_BACKEND/setphoto`
+`REACT_APP_BACKEND_UPLOAD1=IP_DO_BACKEND/setphoto`
